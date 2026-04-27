@@ -234,7 +234,7 @@ filterBtns.forEach(btn => {
 const form = document.querySelector('#contact-form');
 if (form) {
   form.addEventListener('submit', (e) => {
-    e.preventDefault();
+    // Ne pas bloquer l'envoi, laisser Formspree faire son travail
     const btn = form.querySelector('.btn-primary');
     const originalText = btn.textContent;
     btn.textContent = 'Message envoyé !';
@@ -242,7 +242,6 @@ if (form) {
     setTimeout(() => {
       btn.textContent = originalText;
       btn.style.background = '';
-      form.reset();
     }, 3000);
   });
 }
