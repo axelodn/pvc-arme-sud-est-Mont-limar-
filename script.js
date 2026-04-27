@@ -230,22 +230,6 @@ filterBtns.forEach(btn => {
   });
 });
 
-// ===== FORM =====
-const form = document.querySelector('#contact-form');
-if (form) {
-  form.addEventListener('submit', (e) => {
-    // Ne pas bloquer l'envoi, laisser Formspree faire son travail
-    const btn = form.querySelector('.btn-primary');
-    const originalText = btn.textContent;
-    btn.textContent = 'Message envoyé !';
-    btn.style.background = '#4CAF50';
-    setTimeout(() => {
-      btn.textContent = originalText;
-      btn.style.background = '';
-    }, 3000);
-  });
-}
-
 // ===== COUNTER ANIMATION =====
 const counters = document.querySelectorAll('.stat-number');
 const counterObserver = new IntersectionObserver((entries) => {
