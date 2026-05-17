@@ -64,9 +64,17 @@
     }
   }
 
+  // RAF batching — évite le forced layout
+  let rafPending = false;
+  function scheduleRender() {
+    if (!rafPending) {
+      rafPending = true;
+      requestAnimationFrame(() => { render(); rafPending = false; });
+    }
+  }
+
   // — Wheel —
   function onWheel(e) {
-    // Scroll back up when expanded → re-engage expansion
     if (expanded && e.deltaY < 0 && window.scrollY <= 5) {
       expanded = false;
       content.classList.remove('visible');
@@ -78,7 +86,7 @@
       e.preventDefault();
       progress = Math.min(Math.max(progress + e.deltaY * 0.001, 0), 1);
       if (progress >= 1) expanded = true;
-      render();
+      scheduleRender();
     }
   }
 
@@ -100,7 +108,7 @@
       var factor = dy < 0 ? 0.008 : 0.005;
       progress = Math.min(Math.max(progress + dy * factor, 0), 1);
       if (progress >= 1) expanded = true;
-      render();
+      scheduleRender();
       touchStartY = y;
     }
   }
