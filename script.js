@@ -274,19 +274,50 @@ const counterObserver = new IntersectionObserver((entries) => {
 
 counters.forEach(el => counterObserver.observe(el));
 
-// ===== YOUTUBE FACADE (charge l'iframe seulement quand la section est visible) =====
+// ===== YOUTUBE FACADE — boucle manuelle sans flash de logo =====
 const ytWrap = document.querySelector('.video-bg-iframe-wrap[data-yt]');
 if (ytWrap) {
+  let ytPlayer = null;
+
+  // Callback global requis par l'API YouTube
+  window.onYouTubeIframeAPIReady = function () {
+    const id = ytWrap.dataset.yt;
+    const div = document.createElement('div');
+    div.id = 'yt-bg-player';
+    ytWrap.appendChild(div);
+
+    ytPlayer = new YT.Player('yt-bg-player', {
+      videoId: id,
+      playerVars: {
+        autoplay: 1,
+        mute: 1,
+        controls: 0,
+        rel: 0,
+        modestbranding: 1,
+        playsinline: 1,
+        loop: 0,          // on gère la boucle manuellement
+        enablejsapi: 1,
+        origin: window.location.origin
+      },
+      events: {
+        onStateChange: function (e) {
+          // Quand la vidéo se termine (état 0), on repart au début immédiatement
+          if (e.data === YT.PlayerState.ENDED) {
+            ytPlayer.seekTo(0);
+            ytPlayer.playVideo();
+          }
+        }
+      }
+    });
+  };
+
+  // Charger l'API YouTube seulement quand la section approche
   const ytObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const id = ytWrap.dataset.yt;
-        const iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&mute=1&loop=1&playlist=' + id + '&controls=0&rel=0&modestbranding=1&playsinline=1';
-        iframe.title = 'Soudure thermique membrane PVC armé';
-        iframe.frameBorder = '0';
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-        ytWrap.appendChild(iframe);
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(tag);
         ytObserver.disconnect();
       }
     });

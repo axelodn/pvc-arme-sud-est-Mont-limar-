@@ -899,16 +899,19 @@ p.lead {
   pointer-events: none;
 }
 
-.video-bg-iframe-wrap iframe {
+.video-bg-iframe-wrap iframe,
+.video-bg-iframe-wrap #yt-bg-player,
+.video-bg-iframe-wrap #yt-bg-player iframe {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 177.78vh; /* 16:9 ratio */
+  width: 177.78vh;
   height: 100vh;
   min-width: 100%;
-  min-height: 56.25vw; /* 16:9 ratio */
+  min-height: 56.25vw;
   border: 0;
+  pointer-events: none;
 }
 
 .video-bg-overlay {
