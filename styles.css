@@ -230,7 +230,7 @@ p.lead {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: url('attached_assets/IMG_2976_1776408728897.jpg') center/cover no-repeat;
+  background: url('attached_assets/IMG_2976_1776408728897.webp') center/cover no-repeat;
 }
 
 .expansion-bg {
@@ -790,19 +790,19 @@ p.lead {
 }
 
 .texture-visual.pierre {
-  background-image: url('attached_assets/membrane-pvc-arme-imitation-pierre-imperial-sand_1776419672796.png');
+  background-image: url('attached_assets/membrane-pvc-arme-imitation-pierre-imperial-sand_1776419672796.webp');
   background-size: cover;
   background-position: center;
 }
 
 .texture-visual.marbre {
-  background-image: url('assets/membrane-pvc-arme-granit-gris-anthracite.jpg');
+  background-image: url('assets/membrane-pvc-arme-granit-gris-anthracite.webp');
   background-size: cover;
   background-position: center;
 }
 
 .texture-visual.texture3d {
-  background-image: url('attached_assets/membrane-pvc-arme-marbre-blanc-elegance_1776525086784.jpg');
+  background-image: url('attached_assets/membrane-pvc-arme-marbre-blanc-elegance_1776525086784.webp');
   background-size: cover;
   background-position: center;
 }
