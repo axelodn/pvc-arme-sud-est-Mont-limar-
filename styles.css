@@ -847,19 +847,16 @@ p.lead {
 }
 
 /* ===== PROCESS SECTION ===== */
-.process-photo {
-  margin-bottom: 3rem;
-  border-radius: 12px;
-  overflow: hidden;
-  max-height: 480px;
+.processus-bg {
+  position: relative;
+  background: url('assets/chantier-methode-pose.webp') center center / cover no-repeat;
 }
 
-.process-photo img {
-  width: 100%;
-  max-height: 480px;
-  object-fit: cover;
-  object-position: center;
-  display: block;
+.processus-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 8, 8, 0.82);
+  z-index: 0;
 }
 
 .process-grid {
