@@ -1366,6 +1366,50 @@ p.lead {
   margin-top: 0.3rem;
 }
 
+/* ===== GOOGLE REVIEWS BTN ===== */
+.google-reviews-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 2.5rem;
+  padding: 0.85rem 1.5rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+
+.google-reviews-btn:hover {
+  background: rgba(255,255,255,0.11);
+  border-color: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+
+.google-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.google-reviews-text {
+  text-align: left;
+}
+
+.google-stars {
+  color: #FBBC05;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.google-label {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.82rem;
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+
 /* ===== CTA SECTION ===== */
 .cta-section {
   padding: 6rem 0;
