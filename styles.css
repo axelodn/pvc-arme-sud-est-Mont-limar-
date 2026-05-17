@@ -262,17 +262,6 @@ p.lead {
   display: block;
 }
 
-.expansion-media iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300%;
-  height: 300%;
-  pointer-events: none;
-  border: 0;
-}
-
 .expansion-media-overlay {
   position: absolute;
   inset: 0;
