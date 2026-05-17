@@ -847,6 +847,21 @@ p.lead {
 }
 
 /* ===== PROCESS SECTION ===== */
+.process-photo {
+  margin-bottom: 3rem;
+  border-radius: 12px;
+  overflow: hidden;
+  max-height: 480px;
+}
+
+.process-photo img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .process-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
