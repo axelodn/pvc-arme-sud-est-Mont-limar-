@@ -882,6 +882,36 @@ p.lead {
   line-height: 1.7;
 }
 
+/* Video showcase */
+.video-showcase {
+  margin-bottom: 4rem;
+}
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+}
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.video-caption {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
 /* ===== REALISATIONS PAGE ===== */
 .page-hero {
   padding: 10rem 0 4rem;
