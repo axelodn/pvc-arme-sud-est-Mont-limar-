@@ -274,6 +274,26 @@ const counterObserver = new IntersectionObserver((entries) => {
 
 counters.forEach(el => counterObserver.observe(el));
 
+// ===== YOUTUBE FACADE (charge l'iframe seulement quand la section est visible) =====
+const ytWrap = document.querySelector('.video-bg-iframe-wrap[data-yt]');
+if (ytWrap) {
+  const ytObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = ytWrap.dataset.yt;
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&mute=1&loop=1&playlist=' + id + '&controls=0&rel=0&modestbranding=1&playsinline=1';
+        iframe.title = 'Soudure thermique membrane PVC armé';
+        iframe.frameBorder = '0';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        ytWrap.appendChild(iframe);
+        ytObserver.disconnect();
+      }
+    });
+  }, { rootMargin: '200px' });
+  ytObserver.observe(ytWrap);
+}
+
 // Slider avant/après
 document.querySelectorAll('.ba-slider').forEach(slider => {
   const before = slider.querySelector('.ba-before');
