@@ -330,6 +330,11 @@ if (ytWrap) {
           // Affiche l'iframe seulement quand la vidéo joue (évite le flash du bouton pause)
           if (e.data === YT.PlayerState.PLAYING) {
             ytWrap.classList.add('playing');
+            // Retire le masque opaque avec un délai pour éviter tout flash de contrôles
+            const mask = ytWrap.nextElementSibling;
+            if (mask && mask.classList.contains('video-bg-mask')) {
+              setTimeout(() => mask.classList.add('hidden'), 500);
+            }
           }
           // Quand la vidéo se termine (état 0), on repart au début immédiatement
           if (e.data === YT.PlayerState.ENDED) {

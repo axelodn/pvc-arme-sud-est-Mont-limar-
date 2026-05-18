@@ -936,6 +936,22 @@ p.lead {
   opacity: 1;
 }
 
+/* Masque opaque par-dessus l'iframe — disparaît une fois la vidéo lancée */
+.video-bg-mask {
+  position: absolute;
+  inset: 0;
+  background: #080808;
+  z-index: 0;
+  transition: opacity 0.8s ease;
+  opacity: 1;
+}
+
+.video-bg-iframe-wrap.playing ~ .video-bg-mask,
+.video-bg-mask.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .video-bg-overlay {
   position: absolute;
   inset: 0;
