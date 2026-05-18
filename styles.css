@@ -926,6 +926,14 @@ p.lead {
   min-height: 56.25vw;
   border: 0;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.video-bg-iframe-wrap.playing iframe,
+.video-bg-iframe-wrap.playing #yt-bg-player,
+.video-bg-iframe-wrap.playing #yt-bg-player iframe {
+  opacity: 1;
 }
 
 .video-bg-overlay {

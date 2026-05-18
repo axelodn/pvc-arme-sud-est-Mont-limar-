@@ -327,6 +327,10 @@ if (ytWrap) {
       },
       events: {
         onStateChange: function (e) {
+          // Affiche l'iframe seulement quand la vidéo joue (évite le flash du bouton pause)
+          if (e.data === YT.PlayerState.PLAYING) {
+            ytWrap.classList.add('playing');
+          }
           // Quand la vidéo se termine (état 0), on repart au début immédiatement
           if (e.data === YT.PlayerState.ENDED) {
             ytPlayer.seekTo(0);
