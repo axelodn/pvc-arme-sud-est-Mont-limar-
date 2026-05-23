@@ -430,20 +430,14 @@ document.querySelectorAll('.ba-slider').forEach(slider => {
     lbImg.alt   = it.alt;
     lbTitle.textContent = it.title;
     lbDesc.textContent  = it.desc;
-    lb.classList.add('open');
-    // Fix iOS Safari scroll lock
     scrollY = window.scrollY;
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = '100%';
+    lb.classList.add('open');
+    document.documentElement.style.overflow = 'hidden';
   }
 
   function close() {
     lb.classList.remove('open');
-    // Restaure le scroll iOS Safari
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.width = '';
+    document.documentElement.style.overflow = '';
     window.scrollTo(0, scrollY);
   }
 
