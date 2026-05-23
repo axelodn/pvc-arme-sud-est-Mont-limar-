@@ -386,3 +386,74 @@ document.querySelectorAll('.ba-slider').forEach(slider => {
     if (isDragging) moveSlider(e.touches[0].clientX);
   });
 });
+
+// ===== LIGHTBOX =====
+(function () {
+  const lb      = document.getElementById('lightbox');
+  if (!lb) return;
+
+  const lbImg   = document.getElementById('lightbox-img');
+  const lbTitle = document.getElementById('lightbox-title');
+  const lbDesc  = document.getElementById('lightbox-desc');
+  const lbClose = document.getElementById('lightbox-close');
+  const lbPrev  = document.getElementById('lightbox-prev');
+  const lbNext  = document.getElementById('lightbox-next');
+
+  // Collecte toutes les images de la galerie
+  let items = [];
+  let current = 0;
+
+  function buildItems() {
+    items = [];
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      const img = item.querySelector('img');
+      if (!img) return;
+      const h3 = item.querySelector('.gallery-hover h3');
+      const p  = item.querySelector('.gallery-hover p');
+      items.push({
+        src:   img.src,
+        alt:   img.alt,
+        title: h3 ? h3.textContent : '',
+        desc:  p  ? p.textContent  : ''
+      });
+    });
+  }
+
+  function open(index) {
+    buildItems();
+    if (!items.length) return;
+    current = ((index % items.length) + items.length) % items.length;
+    const it = items[current];
+    lbImg.src   = it.src;
+    lbImg.alt   = it.alt;
+    lbTitle.textContent = it.title;
+    lbDesc.textContent  = it.desc;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Ouvre au clic sur un item
+  document.querySelectorAll('.gallery-item').forEach((item, i) => {
+    item.addEventListener('click', () => open(i));
+  });
+
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click', (e) => { e.stopPropagation(); open(current - 1); });
+  lbNext.addEventListener('click', (e) => { e.stopPropagation(); open(current + 1); });
+
+  // Ferme en cliquant en dehors de l'image
+  lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+
+  // Navigation clavier
+  document.addEventListener('keydown', (e) => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')      close();
+    if (e.key === 'ArrowLeft')   open(current - 1);
+    if (e.key === 'ArrowRight')  open(current + 1);
+  });
+})();
