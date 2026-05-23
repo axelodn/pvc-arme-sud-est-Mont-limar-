@@ -419,6 +419,8 @@ document.querySelectorAll('.ba-slider').forEach(slider => {
     });
   }
 
+  let scrollY = 0;
+
   function open(index) {
     buildItems();
     if (!items.length) return;
@@ -429,12 +431,20 @@ document.querySelectorAll('.ba-slider').forEach(slider => {
     lbTitle.textContent = it.title;
     lbDesc.textContent  = it.desc;
     lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    // Fix iOS Safari scroll lock
+    scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
   }
 
   function close() {
     lb.classList.remove('open');
-    document.body.style.overflow = '';
+    // Restaure le scroll iOS Safari
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollY);
   }
 
   // Ouvre au clic sur un item
