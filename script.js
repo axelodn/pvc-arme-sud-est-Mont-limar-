@@ -148,10 +148,11 @@ if (toggle && navLinks) {
   const overlay = document.createElement('div');
   overlay.className = 'mobile-menu-overlay';
   overlay.innerHTML = navLinks.innerHTML;
+  overlay.style.display = 'none'; // caché par défaut via JS, pas CSS
   document.body.appendChild(overlay);
 
   function openMenu() {
-    overlay.classList.add('open');
+    overlay.style.display = 'flex';
     navEl.classList.add('menu-open');
     document.documentElement.style.overflow = 'hidden';
     toggle.setAttribute('aria-expanded', 'true');
@@ -162,7 +163,7 @@ if (toggle && navLinks) {
   }
 
   function closeMenu() {
-    overlay.classList.remove('open');
+    overlay.style.display = 'none';
     navEl.classList.remove('menu-open');
     document.documentElement.style.overflow = '';
     toggle.setAttribute('aria-expanded', 'false');

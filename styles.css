@@ -1752,7 +1752,6 @@ p.lead {
 
 /* ===== MOBILE MENU OVERLAY ===== */
 .mobile-menu-overlay {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -1765,10 +1764,6 @@ p.lead {
   flex-direction: column;
   padding: 90px 2.5rem 3rem;
   overflow-y: auto;
-}
-
-.mobile-menu-overlay.open {
-  display: flex;
 }
 
 .mobile-menu-overlay a {
