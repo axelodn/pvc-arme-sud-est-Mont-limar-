@@ -1770,17 +1770,16 @@ p.lead {
   .nav-links.open {
     display: flex;
     flex-direction: column;
+    /* Hors du contexte nav pour éviter le bug backdrop-filter */
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(10, 10, 10, 0.99);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    background: rgb(10, 10, 10);
     padding: 7rem 2.5rem 3rem;
     gap: 0;
-    z-index: 999;
+    z-index: 9998;
     justify-content: flex-start;
     align-items: flex-start;
     overflow-y: auto;
@@ -1818,7 +1817,12 @@ p.lead {
 
   .nav-toggle {
     display: flex;
-    z-index: 1001;
+    z-index: 9999;
+    position: relative;
+  }
+
+  .nav.menu-open {
+    z-index: 9999;
   }
 
   .stats-grid {
