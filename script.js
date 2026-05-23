@@ -142,43 +142,36 @@ window.addEventListener('scroll', () => {
 const toggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 const navEl = document.querySelector('.nav');
-
-if (toggle && navLinks) {
-  // Clone des liens pour l'overlay (évite le bug backdrop-filter iOS)
-  const overlay = document.createElement('div');
-  overlay.className = 'mobile-menu-overlay';
-  overlay.innerHTML = navLinks.innerHTML;
-  overlay.style.display = 'none'; // caché par défaut via JS, pas CSS
-  document.body.appendChild(overlay);
-
-  function openMenu() {
-    overlay.style.display = 'flex';
-    navEl.classList.add('menu-open');
-    document.documentElement.style.overflow = 'hidden';
-    toggle.setAttribute('aria-expanded', 'true');
-    const spans = toggle.querySelectorAll('span');
-    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-    spans[1].style.opacity = '0';
-    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-  }
-
-  function closeMenu() {
-    overlay.style.display = 'none';
-    navEl.classList.remove('menu-open');
-    document.documentElement.style.overflow = '';
-    toggle.setAttribute('aria-expanded', 'false');
-    const spans = toggle.querySelectorAll('span');
-    spans[0].style.transform = '';
-    spans[1].style.opacity = '';
-    spans[2].style.transform = '';
-  }
-
+if (toggle) {
   toggle.addEventListener('click', () => {
-    overlay.classList.contains('open') ? closeMenu() : openMenu();
+    const isOpen = navLinks.classList.toggle('open');
+    navEl.classList.toggle('menu-open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    toggle.setAttribute('aria-expanded', isOpen);
+    const spans = toggle.querySelectorAll('span');
+    if (isOpen) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    }
   });
 
-  overlay.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeMenu);
+  // Ferme le menu quand on clique un lien
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navEl.classList.remove('menu-open');
+      document.body.style.overflow = '';
+      toggle.setAttribute('aria-expanded', 'false');
+      const spans = toggle.querySelectorAll('span');
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    });
   });
 }
 

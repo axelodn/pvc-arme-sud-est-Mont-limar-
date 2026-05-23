@@ -1750,62 +1750,11 @@ p.lead {
   }
 }
 
-/* ===== MOBILE MENU OVERLAY ===== */
-.mobile-menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background: #0a0a0a;
-  z-index: 9998;
-  flex-direction: column;
-  padding: 90px 2.5rem 3rem;
-  overflow-y: auto;
-}
-
-.mobile-menu-overlay a {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.55);
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  width: 100%;
-  letter-spacing: -0.02em;
-  text-decoration: none;
-  display: block;
-}
-
-.mobile-menu-overlay a:last-child {
-  border-bottom: none;
-}
-
-.mobile-menu-overlay a.active,
-.mobile-menu-overlay a:hover {
-  color: #ffffff;
-}
-
-.mobile-menu-overlay .btn-devis {
-  margin-top: 2rem;
-  width: 100%;
-  text-align: center;
-  font-size: 1rem !important;
-  padding: 1rem 1.5rem;
-  border-radius: 10px;
-  border-bottom: none !important;
-  background: var(--accent) !important;
-  color: var(--bg-dark) !important;
-  display: block;
-}
-
 @media (max-width: 768px) {
   .nav.menu-open {
-    background: #0a0a0a !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    z-index: 9999;
+    background: rgba(10, 10, 10, 0.99) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 
   .nav-logo img {
@@ -1817,10 +1766,58 @@ p.lead {
     display: none;
   }
 
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 10, 0.99);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 7rem 2.5rem 3rem;
+    gap: 0;
+    z-index: 999;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .nav-links.open a {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--text-muted-light);
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    width: 100%;
+    letter-spacing: -0.02em;
+    transition: color 0.2s;
+  }
+
+  .nav-links.open a:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links.open a:hover,
+  .nav-links.open a.active {
+    color: var(--text-light);
+  }
+
+  .nav-links.open .btn-devis {
+    margin-top: 2rem;
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    border-bottom: none;
+  }
+
   .nav-toggle {
     display: flex;
-    z-index: 9999;
-    position: relative;
+    z-index: 1001;
   }
 
   .stats-grid {
