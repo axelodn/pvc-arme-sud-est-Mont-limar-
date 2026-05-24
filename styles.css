@@ -1752,45 +1752,58 @@ p.lead {
 /* ===== ZONES D'INTERVENTION ===== */
 .zones-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
   margin-top: 3rem;
 }
 
 .zone-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
-  padding: 1.5rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 1.25rem 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.zone-card:hover {
+  background: rgba(196,149,106,0.08);
 }
 
 .zone-card h3 {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 0.6rem;
-  letter-spacing: 0.02em;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 0.01em;
 }
 
 .zone-card p {
-  font-size: 0.875rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
 }
 
 .zone-card-link {
-  display: inline-block;
-  margin-top: 0.75rem;
-  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--accent);
   text-decoration: none;
   letter-spacing: 0.02em;
-  transition: opacity 0.2s;
+  transition: gap 0.2s;
 }
 
 .zone-card-link:hover {
-  opacity: 0.75;
+  gap: 0.5rem;
 }
 
 .zones-note {
@@ -1838,6 +1851,12 @@ p.lead {
   .zones-seo {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .zones-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
