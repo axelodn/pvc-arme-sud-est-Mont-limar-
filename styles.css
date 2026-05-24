@@ -1791,6 +1791,41 @@ p.lead {
   text-underline-offset: 3px;
 }
 
+.zones-seo {
+  margin-top: 4rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 3rem;
+}
+
+.zones-seo-block h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+
+.zones-seo-block p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.zones-seo-block strong {
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .zones-seo {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .zones-grid {
     grid-template-columns: repeat(2, 1fr);
