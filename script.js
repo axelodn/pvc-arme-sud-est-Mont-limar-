@@ -346,7 +346,10 @@ if (ytWrap) {
             // Retire le masque opaque avec un délai pour éviter tout flash de contrôles
             const mask = ytWrap.nextElementSibling;
             if (mask && mask.classList.contains('video-bg-mask')) {
-              setTimeout(() => mask.classList.add('hidden'), 500);
+              setTimeout(() => {
+                mask.style.transition = 'opacity 1s ease';
+                mask.style.opacity = '0';
+              }, 500);
             }
           }
           // Quand la vidéo se termine (état 0), on repart au début immédiatement
