@@ -1778,6 +1778,21 @@ p.lead {
   line-height: 1.7;
 }
 
+.zone-card-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s;
+}
+
+.zone-card-link:hover {
+  opacity: 0.75;
+}
+
 .zones-note {
   text-align: center;
   margin-top: 2.5rem;
