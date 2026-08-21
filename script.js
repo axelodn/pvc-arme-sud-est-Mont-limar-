@@ -362,18 +362,10 @@ if (ytWrap) {
     });
   };
 
-  // Charger l'API YouTube seulement quand la section approche
-  const ytObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const tag = document.createElement('script');
-        tag.src = 'https://www.youtube.com/iframe_api';
-        document.head.appendChild(tag);
-        ytObserver.disconnect();
-      }
-    });
-  }, { rootMargin: '1200px' });
-  ytObserver.observe(ytWrap);
+  // Charger l'API YouTube dès l'arrivée sur la page, pour que la vidéo soit prête à l'affichage de la section
+  const ytTag = document.createElement('script');
+  ytTag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(ytTag);
 }
 
 // Slider avant/après
