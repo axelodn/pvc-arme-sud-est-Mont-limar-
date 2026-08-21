@@ -347,9 +347,9 @@ if (ytWrap) {
             const mask = ytWrap.nextElementSibling;
             if (mask && mask.classList.contains('video-bg-mask')) {
               setTimeout(() => {
-                mask.style.transition = 'opacity 1s ease';
+                mask.style.transition = 'opacity 0.6s ease';
                 mask.style.opacity = '0';
-              }, 500);
+              }, 120);
             }
           }
           // Quand la vidéo se termine (état 0), on repart au début immédiatement
@@ -372,7 +372,7 @@ if (ytWrap) {
         ytObserver.disconnect();
       }
     });
-  }, { rootMargin: '200px' });
+  }, { rootMargin: '1200px' });
   ytObserver.observe(ytWrap);
 }
 
