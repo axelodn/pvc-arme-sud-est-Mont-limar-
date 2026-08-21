@@ -1659,6 +1659,56 @@ p.lead {
   color: var(--text-light);
 }
 
+/* ===== PARTNERS ===== */
+.partners-section {
+  padding-bottom: 5rem;
+}
+
+.partners-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem 4rem;
+  margin-top: 3rem;
+}
+
+.partner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+}
+
+.partner-logo img {
+  max-height: 100%;
+  max-width: 150px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1) brightness(1.8) contrast(0.9);
+  opacity: 0.55;
+  transition: filter 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+}
+
+.partner-logo img:hover {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+@media (max-width: 700px) {
+  .partners-grid {
+    gap: 2.25rem 2.5rem;
+  }
+  .partner-logo {
+    height: 34px;
+  }
+  .partner-logo img {
+    max-width: 110px;
+  }
+}
+
 /* ===== GOOGLE REVIEWS BTN ===== */
 .google-reviews-btn {
   display: inline-flex;
