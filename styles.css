@@ -1669,7 +1669,7 @@ p.lead {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 3rem 4rem;
   margin-top: 3rem;
 }
 
@@ -1677,35 +1677,33 @@ p.lead {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70px;
-  width: 170px;
-  background: #f7f5f2;
-  border-radius: 14px;
-  padding: 0.75rem 1.25rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.partner-logo:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+  height: 44px;
 }
 
 .partner-logo img {
   max-height: 100%;
-  max-width: 100%;
+  max-width: 150px;
   width: auto;
   height: auto;
   object-fit: contain;
+  opacity: 0.65;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.partner-logo img:hover {
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 @media (max-width: 700px) {
   .partners-grid {
-    gap: 1rem;
+    gap: 2.25rem 2.5rem;
   }
   .partner-logo {
-    height: 56px;
-    width: 130px;
-    padding: 0.6rem 1rem;
+    height: 34px;
+  }
+  .partner-logo img {
+    max-width: 110px;
   }
 }
 
