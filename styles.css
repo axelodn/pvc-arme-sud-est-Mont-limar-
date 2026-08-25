@@ -165,7 +165,7 @@ p.lead {
   .promo-text {
     font-size: 0.8rem;
   }
-  .nav {
+  .has-promo .nav {
     top: 76px;
   }
 }
@@ -173,12 +173,16 @@ p.lead {
 /* ===== NAVIGATION ===== */
 .nav {
   position: fixed;
-  top: 40px;
+  top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
   padding: 1.5rem 0;
   transition: var(--transition);
+}
+
+.has-promo .nav {
+  top: 40px;
 }
 
 .nav.scrolled {
