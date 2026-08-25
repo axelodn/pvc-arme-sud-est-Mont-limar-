@@ -113,6 +113,24 @@ p.lead {
   z-index: 1001;
   background: var(--accent);
   padding: 0.6rem 1rem;
+  overflow: hidden;
+}
+
+.promo-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,0.55), transparent);
+  animation: promo-shimmer 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes promo-shimmer {
+  0% { left: -60%; }
+  40%, 100% { left: 130%; }
 }
 
 .promo-banner-inner {
@@ -136,6 +154,12 @@ p.lead {
   padding: 0.25rem 0.65rem;
   border-radius: 999px;
   white-space: nowrap;
+  animation: promo-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes promo-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.07); }
 }
 
 .promo-text {
@@ -146,6 +170,10 @@ p.lead {
 
 .promo-text strong {
   font-size: 1rem;
+}
+
+.promo-text-short {
+  display: none;
 }
 
 .promo-cta {
@@ -162,11 +190,25 @@ p.lead {
 }
 
 @media (max-width: 640px) {
-  .promo-text {
+  .promo-banner {
+    padding: 0.45rem 0.75rem;
+  }
+  .promo-text-full {
+    display: none;
+  }
+  .promo-text-short {
+    display: block;
     font-size: 0.8rem;
   }
+  .promo-badge {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+  }
+  .promo-cta {
+    font-size: 0.78rem;
+  }
   .has-promo .nav {
-    top: 76px;
+    top: 52px;
   }
 }
 
