@@ -157,6 +157,10 @@ p.lead {
   animation: promo-pulse 2.4s ease-in-out infinite;
 }
 
+.promo-badge-short {
+  display: none;
+}
+
 @keyframes promo-pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.07); }
@@ -200,7 +204,11 @@ p.lead {
     display: block;
     font-size: 0.8rem;
   }
-  .promo-badge {
+  .promo-badge-full {
+    display: none;
+  }
+  .promo-badge-short {
+    display: inline-block;
     font-size: 0.6rem;
     padding: 0.2rem 0.5rem;
   }
