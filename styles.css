@@ -1151,6 +1151,26 @@ p.lead {
   margin-top: 1.5rem;
 }
 
+.footer-zones {
+  text-align: center;
+  padding-top: 2.5rem;
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--border-dark);
+}
+
+.footer-zones-label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+.footer-zones .local-links {
+  margin-top: 1rem;
+}
+
 .local-links a {
   font-size: 0.85rem;
   color: var(--accent);
