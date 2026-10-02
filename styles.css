@@ -567,7 +567,8 @@ p.lead {
 }
 
 /* ===== EXPERTISE SECTION ===== */
-.expertise-section {
+.expertise-section,
+.faq-section {
   position: relative;
   overflow: hidden;
   background:
@@ -1981,6 +1982,15 @@ p.lead {
 
 .faq-item[open] {
   border-color: rgba(196, 149, 106, 0.3);
+}
+
+.faq-section .faq-item {
+  background: linear-gradient(160deg, rgba(196, 149, 106, 0.10), rgba(255, 255, 255, 0.02));
+  border-color: rgba(196, 149, 106, 0.22);
+}
+
+.faq-section .faq-item[open] {
+  border-color: rgba(95, 211, 224, 0.4);
 }
 
 .faq-question {
