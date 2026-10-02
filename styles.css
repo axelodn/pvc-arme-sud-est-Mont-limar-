@@ -568,7 +568,8 @@ p.lead {
 
 /* ===== EXPERTISE SECTION ===== */
 .expertise-section,
-.faq-section {
+.faq-section,
+.partners-section {
   position: relative;
   overflow: hidden;
   background:
@@ -1876,7 +1877,7 @@ p.lead {
 .partners-track {
   display: flex;
   align-items: center;
-  gap: 4rem;
+  gap: 2rem;
   width: max-content;
   animation: partners-scroll 28s linear infinite;
 }
@@ -1890,39 +1891,90 @@ p.lead {
   to { transform: translateX(-50%); }
 }
 
+.partners-marquee {
+  padding: 1.5rem 0;
+}
+
 .partner-logo {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 44px;
+  width: 210px;
+  height: 110px;
+  padding: 1.5rem 1.75rem;
   flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(196, 149, 106, 0.22), transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(95, 211, 224, 0.14), transparent 60%),
+    rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(196, 149, 106, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Reflet lumineux qui balaie chaque logo à tour de rôle */
+.partner-logo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  transform: skewX(-20deg);
+  animation: partner-sheen 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.partner-logo:nth-child(5n+2)::after { animation-delay: 1.2s; }
+.partner-logo:nth-child(5n+3)::after { animation-delay: 2.4s; }
+.partner-logo:nth-child(5n+4)::after { animation-delay: 3.6s; }
+.partner-logo:nth-child(5n+5)::after { animation-delay: 4.8s; }
+
+@keyframes partner-sheen {
+  0%, 70% { left: -60%; }
+  100% { left: 130%; }
+}
+
+.partner-logo:hover {
+  transform: translateY(-6px);
+  border-color: rgba(95, 211, 224, 0.6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 30px rgba(95, 211, 224, 0.25);
 }
 
 .partner-logo img {
+  position: relative;
   max-height: 100%;
-  max-width: 150px;
+  max-width: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
-  opacity: 0.65;
+  opacity: 0.92;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.partner-logo img:hover {
+.partner-logo:hover img {
   opacity: 1;
-  transform: scale(1.05);
+  transform: scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-logo::after { animation: none; }
 }
 
 @media (max-width: 700px) {
   .partners-track {
-    gap: 2.5rem;
-    animation-duration: 20s;
+    gap: 1.25rem;
+    animation-duration: 22s;
   }
   .partner-logo {
-    height: 34px;
-  }
-  .partner-logo img {
-    max-width: 110px;
+    width: 150px;
+    height: 82px;
+    padding: 1rem 1.25rem;
   }
 }
 
