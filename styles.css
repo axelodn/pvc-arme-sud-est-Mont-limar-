@@ -3234,3 +3234,41 @@ p.lead {
   .fr-route, .fr-pulse { animation: none; }
   .fr-pulse { display: none; }
 }
+
+/* ===== Bouton « Demander un devis » du menu : liseré « soudure » =====
+   Un éclat turquoise et blanc fait le tour du bouton en continu. */
+.btn-devis {
+  position: relative;
+  isolation: isolate;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.btn-devis::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: -2;
+  border-radius: 12px;
+  background: conic-gradient(from var(--weld-angle), #C4956A 0deg 220deg, #5FD3E0 290deg, #FFFFFF 318deg, #C4956A 360deg);
+  filter: drop-shadow(0 0 6px rgba(95, 211, 224, 0.55));
+  animation: weld-run 3s linear infinite;
+}
+
+.btn-devis::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 10px;
+  background: #D4A574;
+  transition: background 0.3s ease;
+}
+
+.btn-devis:hover::after {
+  background: #E0B486;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-devis::before { animation: none; }
+}
