@@ -517,22 +517,6 @@ document.querySelectorAll('.ba-toggle').forEach((box) => {
   const input = document.getElementById('faq-search');
   if (!input) return;
 
-  // La barre de thèmes se place juste sous le menu, quelle que soit sa hauteur
-  const nav = document.querySelector('.nav');
-  const navInner = nav.querySelector('.nav-inner') || nav;
-  const setNavH = () => {
-    // Le logo peut dépasser du menu : on prend le bas réel de ce qui est affiché
-    const bottom = Math.max(nav.getBoundingClientRect().bottom, navInner.getBoundingClientRect().bottom);
-    document.documentElement.style.setProperty('--nav-h', Math.ceil(bottom) + 'px');
-  };
-  setNavH();
-  if ('ResizeObserver' in window) {
-    const ro = new ResizeObserver(setNavH);
-    ro.observe(nav);
-    ro.observe(navInner);
-  }
-  window.addEventListener('resize', setNavH);
-  window.addEventListener('scroll', setNavH, { passive: true });
   const items = document.querySelectorAll('.faq-page .faq-item');
   const categories = document.querySelectorAll('.faq-category');
   const empty = document.getElementById('faq-empty');
@@ -552,23 +536,4 @@ document.querySelectorAll('.ba-toggle').forEach((box) => {
     });
     empty.hidden = shown > 0;
   });
-
-  // Surligne le thème en cours de lecture
-  const chips = document.querySelectorAll('.faq-chip');
-  if ('IntersectionObserver' in window) {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (!e.isIntersecting) return;
-        chips.forEach((c) => {
-          const on = c.getAttribute('href') === '#' + e.target.id;
-          c.classList.toggle('active', on);
-          // Sur mobile, la barre défile pour garder le thème actif visible
-          if (on && c.parentElement.scrollWidth > c.parentElement.clientWidth) {
-            c.parentElement.scrollTo({ left: c.offsetLeft - (c.parentElement.clientWidth - c.offsetWidth) / 2, behavior: 'smooth' });
-          }
-        });
-      });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-    categories.forEach((cat) => obs.observe(cat));
-  }
 })();
