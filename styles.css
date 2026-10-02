@@ -3051,3 +3051,31 @@ p.lead {
 .legal-content a {
   color: var(--accent-light);
 }
+
+/* ===== Fond continu : Nos marques → FAQ → Footer =====
+   Même couleur de base partout, sans séparation ; les halos restent à
+   l'intérieur de chaque section pour qu'aucune jonction ne se voie. */
+.partners-section,
+.faq-section,
+.footer {
+  background-color: #17140F;
+  border-top: none;
+}
+
+.partners-section {
+  background-image: radial-gradient(560px 280px at 82% 40%, rgba(64, 196, 214, 0.10), transparent 100%);
+}
+
+.faq-section {
+  background-image: radial-gradient(560px 300px at 15% 50%, rgba(64, 196, 214, 0.08), transparent 100%),
+    radial-gradient(520px 280px at 88% 60%, rgba(196, 149, 106, 0.10), transparent 100%);
+}
+
+.footer {
+  background-image: radial-gradient(520px 200px at 80% 60%, rgba(64, 196, 214, 0.07), transparent 100%);
+}
+
+.footer-cta {
+  background: none;
+  border-bottom: 1px solid rgba(196, 149, 106, 0.12);
+}
