@@ -491,3 +491,23 @@ document.querySelectorAll('.ba-slider').forEach(slider => {
     });
   });
 })();
+
+// ===== Avant / après : un bouton pour passer d'une photo à l'autre =====
+document.querySelectorAll('.ba-toggle').forEach((box) => {
+  const btn = box.querySelector('.ba-toggle-btn');
+  const badge = box.querySelector('.ba-toggle-badge');
+  const media = box.querySelector('.ba-toggle-media');
+
+  const toggle = () => {
+    const showAfter = box.dataset.state !== 'after';
+    box.dataset.state = showAfter ? 'after' : 'before';
+    badge.textContent = showAfter ? 'Après' : 'Avant';
+    btn.setAttribute('aria-pressed', String(showAfter));
+    btn.innerHTML = showAfter
+      ? '<span aria-hidden="true">&larr;</span> Revoir l\'avant'
+      : 'Voir l\'après <span aria-hidden="true">&rarr;</span>';
+  };
+
+  btn.addEventListener('click', toggle);
+  media.addEventListener('click', toggle);
+});
