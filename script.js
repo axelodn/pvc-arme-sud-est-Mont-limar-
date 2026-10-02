@@ -469,3 +469,25 @@ document.querySelectorAll('.ba-slider').forEach(slider => {
     if (e.key === 'ArrowRight')  open(current + 1);
   });
 })();
+
+// ===== Cartes savoir-faire : halo et inclinaison qui suivent la souris =====
+(function () {
+  if (!window.matchMedia('(hover: hover)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.querySelectorAll('.expertise-section .expertise-card').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;
+      const y = (e.clientY - r.top) / r.height;
+      card.style.setProperty('--mx', (x * 100) + '%');
+      card.style.setProperty('--my', (y * 100) + '%');
+      card.style.setProperty('--ry', ((x - 0.5) * 8) + 'deg');
+      card.style.setProperty('--rx', ((0.5 - y) * 8) + 'deg');
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.setProperty('--rx', '0deg');
+      card.style.setProperty('--ry', '0deg');
+    });
+  });
+})();
