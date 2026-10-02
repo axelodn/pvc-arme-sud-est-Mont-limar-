@@ -2119,6 +2119,15 @@ p.lead {
   border-color: rgba(196, 149, 106, 0.3);
 }
 
+/* FAQ juste après les marques : reflets inversés pour bien séparer les deux sections */
+.faq-section {
+  background:
+    radial-gradient(ellipse 60% 70% at 12% 25%, rgba(64, 196, 214, 0.12), transparent 70%),
+    radial-gradient(ellipse 55% 60% at 90% 85%, rgba(196, 149, 106, 0.16), transparent 70%),
+    linear-gradient(180deg, #15130F 0%, #1B1714 100%);
+  border-top: 1px solid rgba(196, 149, 106, 0.15);
+}
+
 .faq-section .faq-item {
   background: linear-gradient(160deg, rgba(196, 149, 106, 0.10), rgba(255, 255, 255, 0.02));
   border-color: rgba(196, 149, 106, 0.22);
