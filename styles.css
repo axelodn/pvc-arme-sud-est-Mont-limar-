@@ -2910,7 +2910,7 @@ p.lead {
 .faq-category {
   max-width: 800px;
   margin: 0 auto 3.5rem;
-  scroll-margin-top: 280px;
+  scroll-margin-top: 140px;
 }
 
 .faq-category-title {
@@ -2950,7 +2950,7 @@ p.lead {
     display: none;
   }
   .faq-category {
-    scroll-margin-top: 190px;
+    scroll-margin-top: 100px;
   }
 }
 
