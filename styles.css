@@ -2764,3 +2764,63 @@ p.lead {
     scroll-margin-top: 150px;
   }
 }
+
+/* ===== Badge formation Renolit Academy ===== */
+.certif-badge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 460px;
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(196, 149, 106, 0.16), rgba(95, 211, 224, 0.08));
+  border: 1px solid rgba(196, 149, 106, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.certif-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+  transform: skewX(-20deg);
+  animation: partner-sheen 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.certif-badge-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-light), var(--accent-dark));
+  color: var(--text-dark);
+  box-shadow: 0 0 0 4px rgba(196, 149, 106, 0.18);
+}
+
+.certif-badge strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--text-light);
+}
+
+.certif-badge span {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--text-muted-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .certif-badge::after { animation: none; }
+}
