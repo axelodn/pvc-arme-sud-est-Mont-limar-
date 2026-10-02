@@ -511,3 +511,40 @@ document.querySelectorAll('.ba-toggle').forEach((box) => {
   btn.addEventListener('click', toggle);
   media.addEventListener('click', toggle);
 });
+
+// ===== Page FAQ : recherche et thème actif =====
+(function () {
+  const input = document.getElementById('faq-search');
+  if (!input) return;
+  const items = document.querySelectorAll('.faq-page .faq-item');
+  const categories = document.querySelectorAll('.faq-category');
+  const empty = document.getElementById('faq-empty');
+  const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+  input.addEventListener('input', () => {
+    const q = norm(input.value.trim());
+    let shown = 0;
+    items.forEach((item) => {
+      const match = !q || norm(item.textContent).includes(q);
+      item.hidden = !match;
+      item.open = Boolean(q) && match;
+      if (match) shown++;
+    });
+    categories.forEach((cat) => {
+      cat.hidden = !cat.querySelector('.faq-item:not([hidden])');
+    });
+    empty.hidden = shown > 0;
+  });
+
+  // Surligne le thème en cours de lecture
+  const chips = document.querySelectorAll('.faq-chip');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        chips.forEach((c) => c.classList.toggle('active', c.getAttribute('href') === '#' + e.target.id));
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    categories.forEach((cat) => obs.observe(cat));
+  }
+})();
