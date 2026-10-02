@@ -3276,10 +3276,11 @@ p.lead {
 /* ===== AVIS CLIENTS ===== */
 .reviews-section {
   overflow: hidden;
-  background:
-    radial-gradient(560px 300px at 18% 30%, rgba(196, 149, 106, 0.10), transparent 100%),
-    radial-gradient(520px 280px at 85% 70%, rgba(64, 196, 214, 0.07), transparent 100%),
-    #17140F;
+  border-top: none;
+  /* Même fond que Nos marques, FAQ et footer ; halos gardés loin des bords */
+  background-color: #17140F;
+  background-image: radial-gradient(520px 260px at 20% 45%, rgba(196, 149, 106, 0.09), transparent 100%),
+    radial-gradient(500px 240px at 82% 55%, rgba(64, 196, 214, 0.07), transparent 100%);
 }
 
 .reviews-head {
