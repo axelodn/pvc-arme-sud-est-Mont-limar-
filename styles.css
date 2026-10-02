@@ -2858,7 +2858,7 @@ p.lead {
 
 .faq-chips {
   position: sticky;
-  top: 90px;
+  top: calc(var(--nav-h, 90px) + 12px);
   z-index: 20;
   display: flex;
   flex-wrap: wrap;
@@ -2868,7 +2868,9 @@ p.lead {
   padding: 0.75rem;
   max-width: 900px;
   border-radius: 14px;
-  background: rgba(20, 18, 15, 0.85);
+  background: rgba(20, 18, 15, 0.97);
+  /* comble l'espace entre le menu et la barre pour que le texte ne passe pas dessous */
+  box-shadow: 0 -13px 0 0 #0C0C0C, 0 10px 24px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(196, 149, 106, 0.18);
@@ -2908,7 +2910,7 @@ p.lead {
 .faq-category {
   max-width: 800px;
   margin: 0 auto 3.5rem;
-  scroll-margin-top: 190px;
+  scroll-margin-top: 280px;
 }
 
 .faq-category-title {
@@ -2938,7 +2940,6 @@ p.lead {
 
 @media (max-width: 700px) {
   .faq-chips {
-    top: 70px;
     flex-wrap: nowrap;
     justify-content: flex-start;
     overflow-x: auto;
@@ -2949,7 +2950,7 @@ p.lead {
     display: none;
   }
   .faq-category {
-    scroll-margin-top: 150px;
+    scroll-margin-top: 190px;
   }
 }
 
