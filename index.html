@@ -53,8 +53,8 @@
   <link rel="preconnect" href="https://www.google.com">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-  <link rel="preload" href="styles.css?v=16" as="style" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="styles.css?v=16"></noscript>
+  <link rel="preload" href="styles.css?v=17" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css?v=17"></noscript>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -324,13 +324,13 @@
             </div>
           </div>
           <div class="reveal reveal-delay-1">
-            <div class="ba-slider" role="img" aria-label="Comparaison avant et après rénovation de piscine en PVC armé">
-              <div class="ba-image ba-after">
-                <img loading="lazy" src="attached_assets/IMG_3126_1776415755088.webp" alt="Piscine après rénovation avec membrane PVC armé posée à Montélimar" width="900" height="1200">
-                </div>
-              <div class="ba-image ba-before">
-                <img loading="lazy" src="attached_assets/IMG_3122_1776415755088.webp" alt="Piscine avant rénovation avec ancien liner usé" width="900" height="1200">
-                </div>
+            <div class="ba-toggle" data-state="before">
+              <div class="ba-toggle-media">
+                <img class="ba-toggle-img ba-toggle-after" loading="lazy" src="attached_assets/IMG_3126_1776415755088.webp" alt="Piscine après rénovation avec membrane PVC armé posée à Montélimar" width="900" height="1200">
+                <img class="ba-toggle-img ba-toggle-before" loading="lazy" src="attached_assets/IMG_3122_1776415755088.webp" alt="Piscine avant rénovation avec ancien liner usé" width="900" height="1200">
+                <span class="ba-toggle-badge" aria-live="polite">Avant</span>
+              </div>
+              <button type="button" class="ba-toggle-btn" aria-pressed="false">Voir l'après <span aria-hidden="true">&rarr;</span></button>
             </div>
           </div>
         </div>
@@ -576,6 +576,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
