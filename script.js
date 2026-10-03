@@ -417,7 +417,7 @@ document.querySelectorAll('.ba-slider').forEach(slider => {
       // Pour la photo avec/sans eau, on ouvre celle qui est affichée
       const img = item.dataset.water
         ? item.querySelector(item.dataset.water === 'on' ? '.water-on' : '.water-off')
-        : item.querySelector('img');
+        : (item.querySelector('img.is-active') || item.querySelector('img'));
       if (!img) return;
       const h3 = item.querySelector('.gallery-hover h3');
       const p  = item.querySelector('.gallery-hover p');
@@ -553,4 +553,19 @@ document.querySelectorAll('.gallery-water').forEach((item) => {
       : (item.dataset.labelOff || 'Voir en eau');
     btn.setAttribute('aria-pressed', String(!on));
   });
+});
+
+// ===== Réalisations : plusieurs photos d'un même chantier =====
+document.querySelectorAll('.gallery-multi').forEach((item) => {
+  const imgs = item.querySelectorAll('.gallery-visual img');
+  const count = item.querySelector('.multi-count');
+  let i = 0;
+  const show = (n) => {
+    imgs[i].classList.remove('is-active');
+    i = (n + imgs.length) % imgs.length;
+    imgs[i].classList.add('is-active');
+    count.textContent = (i + 1) + ' / ' + imgs.length;
+  };
+  item.querySelector('.multi-prev').addEventListener('click', (e) => { e.stopPropagation(); show(i - 1); });
+  item.querySelector('.multi-next').addEventListener('click', (e) => { e.stopPropagation(); show(i + 1); });
 });
