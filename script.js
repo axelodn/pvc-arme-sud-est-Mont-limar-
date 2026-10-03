@@ -548,7 +548,9 @@ document.querySelectorAll('.gallery-water').forEach((item) => {
     e.stopPropagation(); // ne pas ouvrir l'agrandissement
     const on = item.dataset.water !== 'on';
     item.dataset.water = on ? 'on' : 'off';
-    btn.textContent = on ? 'Voir sans eau' : 'Voir en eau';
+    btn.textContent = on
+      ? (item.dataset.labelOn || 'Voir sans eau')
+      : (item.dataset.labelOff || 'Voir en eau');
     btn.setAttribute('aria-pressed', String(!on));
   });
 });
