@@ -3866,3 +3866,100 @@ p.lead {
 .article-ba .ba-toggle-media {
   aspect-ratio: 4 / 3;
 }
+
+.article-quote footer {
+  margin-top: 0.75rem;
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--accent-light);
+}
+
+/* ===== Réalisations : chantiers en détail ===== */
+.chantier-card {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 1.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(196, 149, 106, 0.22);
+  background: linear-gradient(160deg, rgba(196, 149, 106, 0.10), rgba(255, 255, 255, 0.02));
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.chantier-card:hover {
+  border-color: rgba(95, 211, 224, 0.5);
+  transform: translateY(-4px);
+}
+
+.chantier-card-imgs {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.chantier-card-imgs img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.chantier-card-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+.chantier-card:hover .chantier-card-link {
+  color: #5FD3E0;
+}
+
+.chantier-card-tag {
+  position: absolute;
+  top: 0.75rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.chantier-card-tag-avant {
+  left: 0.75rem;
+  background: rgba(0, 0, 0, 0.65);
+  color: #FFFFFF;
+}
+
+.chantier-card-tag-apres {
+  left: calc(50% + 0.5rem);
+  background: var(--accent);
+  color: var(--text-dark);
+}
+
+.chantier-card-text h3 {
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  margin-bottom: 0.75rem;
+}
+
+.chantier-card-text p {
+  color: var(--text-muted-light);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .chantier-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
