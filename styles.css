@@ -3857,3 +3857,12 @@ p.lead {
     position: static;
   }
 }
+
+/* Avant/après en tête de fiche chantier */
+.article-ba {
+  margin-bottom: 2.5rem;
+}
+
+.article-ba .ba-toggle-media {
+  aspect-ratio: 4 / 3;
+}
