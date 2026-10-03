@@ -36,8 +36,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-  <link rel="preload" href="styles.css?v=33" as="style" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="styles.css?v=33"></noscript>
+  <link rel="preload" href="styles.css?v=34" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css?v=34"></noscript>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -293,9 +293,17 @@
               <p>La Bégude-de-Mazenc — Membrane PVC armé imitation pierre de Bali</p>
             </div>
           </article>
-          <article class="gallery-item reveal" data-category="renovation">
+          <article class="gallery-item gallery-multi reveal" data-category="renovation">
             <div class="gallery-visual">
-              <img loading="lazy" src="assets/chantier-piscine-3x3-sable-texture-pierrelatte.webp" alt="Piscine 3x3 m sable texturé à Pierrelatte" width="600" height="800">
+              <img class="is-active" loading="lazy" src="assets/chantier-piscine-3x3-sable-texture-pierrelatte.webp" alt="Piscine 3x3 m sable texturé à Pierrelatte" width="600" height="800">
+              <img class="" loading="lazy" src="assets/piscine-sable-pierrelatte-terrasse.webp" alt="Piscine sable à Pierrelatte avec terrasse en bois sous les chênes" width="900" height="1200">
+              <img class="" loading="lazy" src="assets/piscine-sable-pierrelatte-vue.webp" alt="Vue d'ensemble de la piscine sable à Pierrelatte" width="900" height="1200">
+              <img class="" loading="lazy" src="assets/piscine-sable-pierrelatte-detail.webp" alt="Détail de l'eau et de la banquette en membrane sable texturée à Pierrelatte" width="1050" height="1400">
+            </div>
+            <div class="multi-controls">
+              <button type="button" class="multi-prev" aria-label="Photo précédente">&#8249;</button>
+              <span class="multi-count">1 / 4</span>
+              <button type="button" class="multi-next" aria-label="Photo suivante">&#8250;</button>
             </div>
             <div class="gallery-hover">
               <h3>Piscine sable texturé à Pierrelatte</h3>
@@ -682,6 +690,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=8"></script>
+  <script src="script.js?v=9"></script>
 </body>
 </html>
