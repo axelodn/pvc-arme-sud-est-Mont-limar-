@@ -3988,3 +3988,16 @@ p.lead {
 .membrane-swatch p {
   margin: 0;
 }
+
+/* Réalisations : moins d'espace entre le projet phare et les chantiers en détail */
+.featured-section {
+  padding-bottom: 3rem;
+}
+
+.chantiers-detail {
+  padding-top: 3rem;
+}
+
+.chantiers-detail .section-header {
+  margin-bottom: 2.5rem;
+}
