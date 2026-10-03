@@ -3590,3 +3590,376 @@ p.lead {
   .texture-card:hover::after { animation: none; }
   .texture-card::before { display: none; }
 }
+
+/* ===== PAGES ARTICLE (fiches chantier et conseils) ===== */
+.article-hero .container {
+  max-width: 900px;
+}
+
+.breadcrumb {
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.breadcrumb a {
+  color: var(--text-muted-light);
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-light);
+}
+
+.breadcrumb span {
+  margin: 0 0.4rem;
+}
+
+.article-section {
+  padding-top: 3rem;
+}
+
+.article-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 4rem;
+  align-items: start;
+}
+
+.article-body h2 {
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  margin: 2.75rem 0 1rem;
+}
+
+.article-body h2:first-child {
+  margin-top: 0;
+}
+
+.article-body p,
+.article-body li {
+  color: #D0CBC4;
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+.article-body p + p {
+  margin-top: 1rem;
+}
+
+.article-body ul,
+.article-body ol {
+  padding-left: 1.3rem;
+  margin: 1rem 0;
+}
+
+.article-body li + li {
+  margin-top: 0.5rem;
+}
+
+.article-body strong {
+  color: var(--text-light);
+}
+
+.article-figure {
+  margin: 0 0 2.5rem;
+}
+
+.article-figure img {
+  width: 100%;
+  max-height: 560px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
+}
+
+.article-figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.article-summary {
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+  border-radius: 14px;
+  border-left: 3px solid #5FD3E0;
+  background: rgba(95, 211, 224, 0.07);
+  color: #D0CBC4;
+  line-height: 1.75;
+}
+
+.article-quote {
+  margin: 1rem 0;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  background: rgba(196, 149, 106, 0.08);
+  font-style: italic;
+  color: var(--text-light);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(196, 149, 106, 0.22);
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  vertical-align: top;
+}
+
+.compare-table thead th {
+  background: rgba(196, 149, 106, 0.12);
+  color: var(--accent-light);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.compare-table tbody th {
+  color: var(--text-light);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.compare-table td {
+  color: #D0CBC4;
+}
+
+.compare-table td:last-child {
+  color: var(--text-light);
+}
+
+.compare-table tbody tr:last-child th,
+.compare-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.article-cta {
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 18px;
+  border: 1px solid rgba(196, 149, 106, 0.3);
+  background: linear-gradient(135deg, rgba(196, 149, 106, 0.14), rgba(95, 211, 224, 0.06));
+}
+
+.article-cta h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.article-cta p {
+  margin-bottom: 1.25rem;
+}
+
+.article-aside {
+  position: sticky;
+  top: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.fact-card {
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(196, 149, 106, 0.22);
+  background: linear-gradient(160deg, rgba(196, 149, 106, 0.10), rgba(255, 255, 255, 0.02));
+}
+
+.fact-card h3 {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.fact-card p {
+  color: var(--text-muted-light);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.fact-card dl {
+  margin: 0 0 1.5rem;
+}
+
+.fact-card dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.9rem;
+}
+
+.fact-card dt {
+  color: var(--text-muted);
+}
+
+.fact-card dd {
+  margin: 0;
+  text-align: right;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.fact-card .btn-primary,
+.fact-card .btn-secondary {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.fact-card-links a {
+  display: block;
+  padding: 0.55rem 0;
+  font-size: 0.92rem;
+  color: var(--text-muted-light);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.fact-card-links a:last-child {
+  border-bottom: none;
+  color: var(--accent-light);
+}
+
+.fact-card-links a:hover {
+  color: #5FD3E0;
+}
+
+/* Infos à compléter (exemples) */
+.a-completer {
+  background: rgba(255, 196, 0, 0.18);
+  color: #FFD666;
+  padding: 0.05rem 0.3rem;
+  border-radius: 4px;
+  font-style: normal;
+}
+
+@media (max-width: 900px) {
+  .article-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .article-aside {
+    position: static;
+  }
+}
+
+/* Avant/après en tête de fiche chantier */
+.article-ba {
+  margin-bottom: 2.5rem;
+}
+
+.article-ba .ba-toggle-media {
+  aspect-ratio: 4 / 3;
+}
+
+.article-quote footer {
+  margin-top: 0.75rem;
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--accent-light);
+}
+
+/* ===== Réalisations : chantiers en détail ===== */
+.chantier-card {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 1.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(196, 149, 106, 0.22);
+  background: linear-gradient(160deg, rgba(196, 149, 106, 0.10), rgba(255, 255, 255, 0.02));
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.chantier-card:hover {
+  border-color: rgba(95, 211, 224, 0.5);
+  transform: translateY(-4px);
+}
+
+.chantier-card-imgs {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.chantier-card-imgs img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.chantier-card-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+.chantier-card:hover .chantier-card-link {
+  color: #5FD3E0;
+}
+
+.chantier-card-tag {
+  position: absolute;
+  top: 0.75rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.chantier-card-tag-avant {
+  left: 0.75rem;
+  background: rgba(0, 0, 0, 0.65);
+  color: #FFFFFF;
+}
+
+.chantier-card-tag-apres {
+  left: calc(50% + 0.5rem);
+  background: var(--accent);
+  color: var(--text-dark);
+}
+
+.chantier-card-text h3 {
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  margin-bottom: 0.75rem;
+}
+
+.chantier-card-text p {
+  color: var(--text-muted-light);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .chantier-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
