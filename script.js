@@ -414,7 +414,10 @@ document.querySelectorAll('.ba-slider').forEach(slider => {
   function buildItems() {
     items = [];
     document.querySelectorAll('.gallery-item').forEach(item => {
-      const img = item.querySelector('img');
+      // Pour la photo avec/sans eau, on ouvre celle qui est affichée
+      const img = item.dataset.water
+        ? item.querySelector(item.dataset.water === 'on' ? '.water-on' : '.water-off')
+        : item.querySelector('img');
       if (!img) return;
       const h3 = item.querySelector('.gallery-hover h3');
       const p  = item.querySelector('.gallery-hover p');
@@ -537,3 +540,15 @@ document.querySelectorAll('.ba-toggle').forEach((box) => {
     empty.hidden = shown > 0;
   });
 })();
+
+// ===== Réalisations : bouton « avec / sans eau » =====
+document.querySelectorAll('.gallery-water').forEach((item) => {
+  const btn = item.querySelector('.water-toggle');
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation(); // ne pas ouvrir l'agrandissement
+    const on = item.dataset.water !== 'on';
+    item.dataset.water = on ? 'on' : 'off';
+    btn.textContent = on ? 'Voir sans eau' : 'Voir en eau';
+    btn.setAttribute('aria-pressed', String(!on));
+  });
+});

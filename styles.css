@@ -4001,3 +4001,39 @@ p.lead {
 .chantiers-detail .section-header {
   margin-bottom: 2.5rem;
 }
+
+/* ===== Réalisations : photo avec / sans eau ===== */
+.gallery-water .gallery-visual img {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.5s ease;
+}
+
+.gallery-water[data-water="on"] .water-off,
+.gallery-water[data-water="off"] .water-on {
+  opacity: 0;
+}
+
+.water-toggle {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  z-index: 3;
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 999px;
+  background: rgba(12, 12, 12, 0.75);
+  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.water-toggle:hover,
+.water-toggle[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--text-dark);
+}
