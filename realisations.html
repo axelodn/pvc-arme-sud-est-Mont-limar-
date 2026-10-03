@@ -36,8 +36,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-  <link rel="preload" href="styles.css?v=32" as="style" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="styles.css?v=32"></noscript>
+  <link rel="preload" href="styles.css?v=33" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css?v=33"></noscript>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -244,10 +244,12 @@
               <p>Orange — Membrane PVC armé gris anthracite au fond et gris marbré sur les parois</p>
             </div>
           </article>
-          <article class="gallery-item reveal" data-category="forme">
+          <article class="gallery-item gallery-water reveal" data-category="forme" data-water="on">
             <div class="gallery-visual">
-              <img loading="lazy" src="assets/membrane-pvc-arme-imitation-carrelage-piscine.webp" alt="Piscine avec membrane PVC armé imitation carrelage" width="600" height="800">
+              <img class="water-on" loading="lazy" src="assets/membrane-pvc-arme-imitation-carrelage-piscine.webp" alt="Piscine PVC armé imitation carrelage à La Motte-Chalancon, en eau" width="600" height="800">
+              <img class="water-off" loading="lazy" src="assets/piscine-pvc-arme-mix-match-carrelage-gris-motte-chalancon.webp" alt="Piscine PVC armé imitation carrelage à La Motte-Chalancon, sans eau" width="600" height="800">
             </div>
+            <button type="button" class="water-toggle" aria-pressed="false">Voir sans eau</button>
             <div class="gallery-hover">
               <h3>Piscine imitation carrelage La Motte-Chalancon</h3>
               <p>La Motte-Chalancon — Mix & Match imitation carrelage et gris anthracite</p>
@@ -289,15 +291,6 @@
               <p>La Bégude-de-Mazenc — Membrane PVC armé imitation pierre de Bali</p>
             </div>
           </article>
-          <article class="gallery-item reveal reveal-delay-2" data-category="forme">
-            <div class="gallery-visual">
-              <img loading="lazy" src="assets/piscine-pvc-arme-mix-match-carrelage-gris-motte-chalancon.webp" alt="Piscine PVC armé imitation carrelage gris à La Motte-Chalancon" width="600" height="800">
-            </div>
-            <div class="gallery-hover">
-              <h3>Piscine imitation carrelage La Motte-Chalancon</h3>
-              <p>La Motte-Chalancon — Mix & Match gris anthracite et imitation carrelage</p>
-            </div>
-          </article>
           <article class="gallery-item reveal" data-category="renovation">
             <div class="gallery-visual">
               <img loading="lazy" src="assets/chantier-piscine-3x3-sable-texture-pierrelatte.webp" alt="Piscine 3x3 m sable texturé à Pierrelatte" width="600" height="800">
@@ -316,22 +309,15 @@
               <p>Le Pouzin — Parois en PVC armé gris anthracite et fond en membrane 3D granit gris</p>
             </div>
           </article>
-          <article class="gallery-item reveal reveal-delay-2" data-category="renovation">
+          <article class="gallery-item gallery-water reveal reveal-delay-2" data-category="renovation" data-water="on">
             <div class="gallery-visual">
-              <img loading="lazy" src="assets/piscine-fidji-plus-green-carrelage-petit-carreau-dieulefit.webp" alt="Piscine Fidji Plus Green à Dieulefit avec imitation carrelage petit carreau" width="600" height="800">
+              <img class="water-on" loading="lazy" src="assets/piscine-fidji-plus-green-carrelage-petit-carreau-dieulefit.webp" alt="Piscine Fidji Green à Dieulefit, en eau" width="600" height="800">
+              <img class="water-off" loading="lazy" src="assets/piscine-fidji-plus-green-dieulefit-drome.webp" alt="Piscine Fidji Green à Dieulefit, sans eau" width="600" height="800">
             </div>
+            <button type="button" class="water-toggle" aria-pressed="false">Voir sans eau</button>
             <div class="gallery-hover">
               <h3>Piscine Fidji Green petit carreau à Dieulefit</h3>
               <p>Dieulefit — Membrane PVC armé Fidji Green imitation carrelage vert turquoise</p>
-            </div>
-          </article>
-          <article class="gallery-item reveal" data-category="renovation">
-            <div class="gallery-visual">
-              <img loading="lazy" src="assets/piscine-fidji-plus-green-dieulefit-drome.webp" alt="Piscine Fidji Plus Green à Dieulefit dans la Drôme" width="600" height="800">
-            </div>
-            <div class="gallery-hover">
-              <h3>Fidji Plus Green à Dieulefit</h3>
-              <p>Piscine neuve en Drôme — membrane imitation carrelage petit carreau</p>
             </div>
           </article>
           <article class="gallery-item reveal reveal-delay-1" data-category="neuf">
@@ -694,6 +680,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>
