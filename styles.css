@@ -3889,6 +3889,10 @@ p.lead {
   transition: border-color 0.3s, transform 0.3s;
 }
 
+.chantier-card + .chantier-card {
+  margin-top: 1.5rem;
+}
+
 .chantier-card:hover {
   border-color: rgba(95, 211, 224, 0.5);
   transform: translateY(-4px);
@@ -3962,4 +3966,25 @@ p.lead {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+}
+
+.membrane-swatch {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.membrane-swatch img {
+  flex-shrink: 0;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(196, 149, 106, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.membrane-swatch p {
+  margin: 0;
 }
