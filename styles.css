@@ -573,7 +573,7 @@ p.lead {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 60% 70% at 85% 30%, rgba(64, 196, 214, 0.14), transparent 70%),
+    radial-gradient(ellipse 60% 70% at 85% 30%, rgba(0, 0, 0, 0), transparent 70%),
     radial-gradient(ellipse 55% 60% at 10% 90%, rgba(196, 149, 106, 0.16), transparent 70%),
     linear-gradient(180deg, #1B1714 0%, #15130F 100%);
 }
@@ -595,7 +595,7 @@ p.lead {
 }
 
 .expertise-link:hover {
-  color: #5FD3E0;
+  color: var(--accent-light);
 }
 
 .expertise-section .expertise-card {
@@ -605,7 +605,7 @@ p.lead {
 
 .expertise-section .expertise-card::before {
   transform: scaleX(1);
-  background: linear-gradient(90deg, var(--accent), #5FD3E0);
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
 }
 
 /* Effet "soudure" sur les cartes : liseré lumineux qui fait le tour,
@@ -623,7 +623,7 @@ p.lead {
   --ry: 0deg;
   --spot: 0;
   background:
-    radial-gradient(circle 260px at var(--mx) var(--my), rgba(95, 211, 224, calc(var(--spot) * 0.16)), transparent 70%),
+    radial-gradient(circle 260px at var(--mx) var(--my), rgba(196, 149, 106, calc(var(--spot) * 0.16)), transparent 70%),
     linear-gradient(160deg, rgba(196, 149, 106, 0.10), rgba(255, 255, 255, 0.02));
 }
 
@@ -639,8 +639,8 @@ p.lead {
   inset: 0;
   border-radius: inherit;
   padding: 2px;
-  filter: drop-shadow(0 0 4px rgba(95, 211, 224, 0.8));
-  background: conic-gradient(from var(--weld-angle), transparent 0deg 290deg, rgba(95, 211, 224, 0.6) 330deg, #FFFFFF 352deg, transparent 360deg);
+  filter: drop-shadow(0 0 4px rgba(196, 149, 106, 0.8));
+  background: conic-gradient(from var(--weld-angle), transparent 0deg 290deg, rgba(196, 149, 106, 0.6) 330deg, #FFFFFF 352deg, transparent 360deg);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -663,8 +663,8 @@ p.lead {
 }
 
 @keyframes weld-pulse {
-  0% { box-shadow: 0 8px 20px rgba(196, 149, 106, 0.3), 0 0 0 0 rgba(95, 211, 224, 0.55); }
-  100% { box-shadow: 0 8px 20px rgba(196, 149, 106, 0.3), 0 0 0 14px rgba(95, 211, 224, 0); }
+  0% { box-shadow: 0 8px 20px rgba(196, 149, 106, 0.3), 0 0 0 0 rgba(196, 149, 106, 0.55); }
+  100% { box-shadow: 0 8px 20px rgba(196, 149, 106, 0.3), 0 0 0 14px rgba(196, 149, 106, 0); }
 }
 
 /* Sur mobile (pas de survol) : le liseré fait un tour à l'apparition de la carte */
@@ -1908,7 +1908,7 @@ p.lead {
   overflow: hidden;
   background:
     radial-gradient(circle at 20% 0%, rgba(196, 149, 106, 0.22), transparent 60%),
-    radial-gradient(circle at 100% 100%, rgba(95, 211, 224, 0.14), transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(196, 149, 106, 0.14), transparent 60%),
     rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(196, 149, 106, 0.28);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 30px rgba(0, 0, 0, 0.35);
@@ -1941,8 +1941,8 @@ p.lead {
 
 .partner-logo:hover {
   transform: translateY(-6px);
-  border-color: rgba(95, 211, 224, 0.6);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 30px rgba(95, 211, 224, 0.25);
+  border-color: rgba(196, 149, 106, 0.6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 30px rgba(196, 149, 106, 0.25);
 }
 
 .partner-logo img {
@@ -2048,7 +2048,7 @@ p.lead {
   padding: 0 0 2rem;
   border-top: 1px solid rgba(196, 149, 106, 0.25);
   background:
-    radial-gradient(ellipse 50% 60% at 90% 20%, rgba(64, 196, 214, 0.08), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 90% 20%, rgba(0, 0, 0, 0), transparent 70%),
     radial-gradient(ellipse 50% 60% at 5% 90%, rgba(196, 149, 106, 0.10), transparent 70%),
     var(--bg-darker);
 }
@@ -2056,7 +2056,7 @@ p.lead {
 /* Bandeau d'appel */
 .footer-cta {
   border-bottom: 1px solid rgba(196, 149, 106, 0.18);
-  background: linear-gradient(110deg, rgba(196, 149, 106, 0.16), rgba(95, 211, 224, 0.07));
+  background: linear-gradient(110deg, rgba(196, 149, 106, 0.16), rgba(196, 149, 106, 0.07));
 }
 
 .footer-cta-inner {
@@ -2201,7 +2201,7 @@ p.lead {
 .footer-zone-more {
   margin-top: 0.5rem;
   font-size: 0.9rem;
-  color: #5FD3E0;
+  color: var(--accent-light);
 }
 
 .footer-zone-more + .footer-zone-list {
@@ -2310,7 +2310,7 @@ p.lead {
 /* FAQ juste après les marques : reflets inversés pour bien séparer les deux sections */
 .faq-section {
   background:
-    radial-gradient(ellipse 60% 70% at 12% 25%, rgba(64, 196, 214, 0.12), transparent 70%),
+    radial-gradient(ellipse 60% 70% at 12% 25%, rgba(0, 0, 0, 0), transparent 70%),
     radial-gradient(ellipse 55% 60% at 90% 85%, rgba(196, 149, 106, 0.16), transparent 70%),
     linear-gradient(180deg, #15130F 0%, #1B1714 100%);
   border-top: 1px solid rgba(196, 149, 106, 0.15);
@@ -2322,7 +2322,7 @@ p.lead {
 }
 
 .faq-section .faq-item[open] {
-  border-color: rgba(95, 211, 224, 0.4);
+  border-color: rgba(196, 149, 106, 0.4);
 }
 
 .faq-question {
@@ -2852,8 +2852,8 @@ p.lead {
 
 .faq-search input:focus {
   outline: none;
-  border-color: #5FD3E0;
-  box-shadow: 0 0 0 3px rgba(95, 211, 224, 0.15);
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 3px rgba(196, 149, 106, 0.15);
 }
 
 .faq-chips {
@@ -2964,7 +2964,7 @@ p.lead {
   margin-top: 2rem;
   padding: 1rem 1.25rem;
   border-radius: 14px;
-  background: linear-gradient(135deg, rgba(196, 149, 106, 0.16), rgba(95, 211, 224, 0.08));
+  background: linear-gradient(135deg, rgba(196, 149, 106, 0.16), rgba(196, 149, 106, 0.08));
   border: 1px solid rgba(196, 149, 106, 0.4);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -3064,16 +3064,16 @@ p.lead {
 }
 
 .partners-section {
-  background-image: radial-gradient(560px 280px at 82% 40%, rgba(64, 196, 214, 0.10), transparent 100%);
+  background-image: radial-gradient(560px 280px at 82% 40%, rgba(0, 0, 0, 0), transparent 100%);
 }
 
 .faq-section {
-  background-image: radial-gradient(560px 300px at 15% 50%, rgba(64, 196, 214, 0.08), transparent 100%),
+  background-image: radial-gradient(560px 300px at 15% 50%, rgba(0, 0, 0, 0), transparent 100%),
     radial-gradient(520px 280px at 88% 60%, rgba(196, 149, 106, 0.10), transparent 100%);
 }
 
 .footer {
-  background-image: radial-gradient(520px 200px at 80% 60%, rgba(64, 196, 214, 0.07), transparent 100%);
+  background-image: radial-gradient(520px 200px at 80% 60%, rgba(0, 0, 0, 0), transparent 100%);
 }
 
 .footer-cta {
@@ -3093,7 +3093,7 @@ p.lead {
   border: 1px solid rgba(196, 149, 106, 0.22);
   background:
     radial-gradient(500px 320px at 75% 50%, rgba(196, 149, 106, 0.10), transparent 100%),
-    radial-gradient(420px 280px at 15% 20%, rgba(64, 196, 214, 0.07), transparent 100%),
+    radial-gradient(420px 280px at 15% 20%, rgba(0, 0, 0, 0), transparent 100%),
     #17140F;
 }
 
@@ -3136,8 +3136,8 @@ p.lead {
 }
 
 .legend-base {
-  background: #5FD3E0;
-  box-shadow: 0 0 0 4px rgba(95, 211, 224, 0.25);
+  background: var(--accent-light);
+  box-shadow: 0 0 0 4px rgba(196, 149, 106, 0.25);
 }
 
 .legend-zone {
@@ -3190,13 +3190,13 @@ p.lead {
 }
 
 .fr-dot {
-  fill: #5FD3E0;
+  fill: var(--accent-light);
   stroke: #0C0C0C;
   stroke-width: 3;
 }
 
 .fr-pulse {
-  fill: #5FD3E0;
+  fill: var(--accent-light);
   transform-box: fill-box;
   transform-origin: center;
   animation: fr-pulse 2.4s ease-out infinite;
@@ -3213,7 +3213,7 @@ p.lead {
 
 .fr-label rect {
   fill: rgba(12, 12, 12, 0.85);
-  stroke: rgba(95, 211, 224, 0.6);
+  stroke: rgba(196, 149, 106, 0.6);
 }
 
 .fr-label text {
@@ -3251,8 +3251,8 @@ p.lead {
   inset: -2px;
   z-index: -2;
   border-radius: 12px;
-  background: conic-gradient(from var(--weld-angle), #C4956A 0deg 220deg, #5FD3E0 290deg, #FFFFFF 318deg, #C4956A 360deg);
-  filter: drop-shadow(0 0 6px rgba(95, 211, 224, 0.55));
+  background: conic-gradient(from var(--weld-angle), #C4956A 0deg 220deg, var(--accent-light) 290deg, #FFFFFF 318deg, #C4956A 360deg);
+  filter: drop-shadow(0 0 6px rgba(196, 149, 106, 0.55));
   animation: weld-run 3s linear infinite;
 }
 
@@ -3281,7 +3281,7 @@ p.lead {
   /* Même fond que Nos marques, FAQ et footer ; halos gardés loin des bords */
   background-color: #17140F;
   background-image: radial-gradient(520px 260px at 20% 45%, rgba(196, 149, 106, 0.09), transparent 100%),
-    radial-gradient(500px 240px at 82% 55%, rgba(64, 196, 214, 0.07), transparent 100%);
+    radial-gradient(500px 240px at 82% 55%, rgba(0, 0, 0, 0), transparent 100%);
 }
 
 .reviews-head {
@@ -3311,7 +3311,7 @@ p.lead {
 }
 
 .reviews-score:hover {
-  border-color: rgba(95, 211, 224, 0.6);
+  border-color: rgba(196, 149, 106, 0.6);
   transform: translateY(-2px);
 }
 
@@ -3378,7 +3378,7 @@ p.lead {
 }
 
 .review-card:hover {
-  border-color: rgba(95, 211, 224, 0.5);
+  border-color: rgba(196, 149, 106, 0.5);
   transform: translateY(-4px);
 }
 
@@ -3429,7 +3429,7 @@ p.lead {
 }
 
 .review-author small {
-  color: #5FD3E0;
+  color: var(--accent-light);
   font-size: 0.78rem;
 }
 
@@ -3458,7 +3458,7 @@ p.lead {
 .textures-section {
   background:
     radial-gradient(560px 320px at 15% 30%, rgba(196, 149, 106, 0.09), transparent 100%),
-    radial-gradient(520px 300px at 88% 70%, rgba(64, 196, 214, 0.07), transparent 100%),
+    radial-gradient(520px 300px at 88% 70%, rgba(0, 0, 0, 0), transparent 100%),
     var(--bg-dark);
 }
 
@@ -3479,7 +3479,7 @@ p.lead {
   z-index: 4;
   border-radius: inherit;
   padding: 2px;
-  background: conic-gradient(from var(--weld-angle), transparent 0deg 290deg, rgba(95, 211, 224, 0.7) 330deg, #FFFFFF 352deg, transparent 360deg);
+  background: conic-gradient(from var(--weld-angle), transparent 0deg 290deg, rgba(196, 149, 106, 0.7) 330deg, #FFFFFF 352deg, transparent 360deg);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -3556,7 +3556,7 @@ p.lead {
 }
 
 .texture-link:hover {
-  color: #5FD3E0;
+  color: var(--accent-light);
 }
 
 /* Sur ordinateur : la description et le lien apparaissent au survol */
@@ -3681,8 +3681,8 @@ p.lead {
   padding: 1.25rem 1.5rem;
   margin-bottom: 2.5rem;
   border-radius: 14px;
-  border-left: 3px solid #5FD3E0;
-  background: rgba(95, 211, 224, 0.07);
+  border-left: 3px solid var(--accent-light);
+  background: rgba(196, 149, 106, 0.07);
   color: #D0CBC4;
   line-height: 1.75;
 }
@@ -3749,7 +3749,7 @@ p.lead {
   padding: 2rem;
   border-radius: 18px;
   border: 1px solid rgba(196, 149, 106, 0.3);
-  background: linear-gradient(135deg, rgba(196, 149, 106, 0.14), rgba(95, 211, 224, 0.06));
+  background: linear-gradient(135deg, rgba(196, 149, 106, 0.14), rgba(196, 149, 106, 0.06));
 }
 
 .article-cta h3 {
@@ -3836,7 +3836,7 @@ p.lead {
 }
 
 .fact-card-links a:hover {
-  color: #5FD3E0;
+  color: var(--accent-light);
 }
 
 /* Infos à compléter (exemples) */
@@ -3894,7 +3894,7 @@ p.lead {
 }
 
 .chantier-card:hover {
-  border-color: rgba(95, 211, 224, 0.5);
+  border-color: rgba(196, 149, 106, 0.5);
   transform: translateY(-4px);
 }
 
@@ -3925,7 +3925,7 @@ p.lead {
 }
 
 .chantier-card:hover .chantier-card-link {
-  color: #5FD3E0;
+  color: var(--accent-light);
 }
 
 .chantier-card-tag {
@@ -4088,4 +4088,49 @@ p.lead {
   font-size: 0.8rem;
   font-weight: 600;
   color: #FFFFFF;
+}
+
+
+/* ===== STYLE SOBRE : pas d'effets lumineux ni d'animations décoratives ===== */
+.expertise-section .expertise-card::after,
+.expertise-section .expertise-card::before,
+.texture-card::after,
+.texture-card::before,
+.partner-logo::after,
+.certif-badge::after,
+.btn-devis::before {
+  display: none !important;
+  animation: none !important;
+}
+
+.expertise-section .expertise-card,
+.expertise-section .expertise-card.visible:hover {
+  --spot: 0 !important;
+  background: linear-gradient(160deg, rgba(196, 149, 106, 0.10), rgba(255, 255, 255, 0.02));
+}
+
+.expertise-section .expertise-card.visible:hover {
+  transform: translateY(-4px);
+}
+
+.expertise-section .expertise-card:hover .expertise-icon {
+  animation: none;
+}
+
+.expertise-section .expertise-icon,
+.certif-badge-icon {
+  box-shadow: none;
+}
+
+.btn-devis {
+  box-shadow: none !important;
+}
+
+.fr-route,
+.fr-pulse {
+  animation: none !important;
+}
+
+.fr-pulse {
+  display: none;
 }
