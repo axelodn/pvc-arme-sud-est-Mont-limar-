@@ -548,3 +548,10 @@ document.querySelectorAll('.gallery-multi').forEach((item) => {
   item.querySelector('.multi-prev').addEventListener('click', (e) => { e.stopPropagation(); show(i - 1); });
   item.querySelector('.multi-next').addEventListener('click', (e) => { e.stopPropagation(); show(i + 1); });
 });
+
+// ===== Contact : message pré-rempli depuis le configurateur =====
+(function () {
+  const msg = document.getElementById('message');
+  const projet = new URLSearchParams(location.search).get('projet');
+  if (msg && projet && !msg.value) msg.value = projet;
+})();
