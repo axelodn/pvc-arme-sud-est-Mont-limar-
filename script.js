@@ -270,23 +270,46 @@ filterBtns.forEach(btn => {
 });
 
 // ===== FORM - FORMSPREE INTEGRATION =====
-// Laisser Formspree gérer l'envoi naturellement
+// Envoi en AJAX puis redirection vers merci.html, qui déclenche la
+// conversion Google Ads « Contact » (la redirection _next de Formspree
+// n'est pas fiable sur l'offre gratuite).
 const form = document.querySelector('#contact-form');
 if (form) {
-  form.addEventListener('submit', function() {
+  form.addEventListener('submit', function(e) {
+    if (!window.fetch || !window.FormData) return; // envoi natif
+    e.preventDefault();
     const btn = form.querySelector('.btn-primary');
     const originalText = btn.textContent;
-    btn.textContent = 'Message envoyé !';
-    btn.style.background = '#4CAF50';
+    btn.textContent = 'Envoi en cours…';
     btn.disabled = true;
-    
-    setTimeout(() => {
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      btn.textContent = 'Message envoyé !';
+      btn.style.background = '#4CAF50';
+      window.location.href = 'merci.html';
+    }).catch(function() {
       btn.textContent = originalText;
-      btn.style.background = '';
       btn.disabled = false;
-    }, 3000);
+      alert("L'envoi a échoué. Merci de réessayer ou de nous appeler au 06 50 91 03 76.");
+    });
   });
 }
+
+// ===== GOOGLE ADS - SUIVI DES CLICS SUR LE TÉLÉPHONE =====
+// Remplacer par le libellé d'une action de conversion dédiée « Appel »
+// quand elle sera créée dans Google Ads (Objectifs > Conversions).
+const PHONE_CONVERSION = 'AW-18186509081/DHSGCPmo4L8cEJm2gOBD';
+document.addEventListener('click', function(e) {
+  const link = e.target.closest && e.target.closest('a[href^="tel:"]');
+  if (link && typeof window.gtag === 'function') {
+    window.gtag('event', 'conversion', { 'send_to': PHONE_CONVERSION });
+  }
+});
 
 // ===== COUNTER ANIMATION =====
 const counters = document.querySelectorAll('.stat-number');
