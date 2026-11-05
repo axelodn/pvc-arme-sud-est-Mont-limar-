@@ -269,6 +269,64 @@ filterBtns.forEach(btn => {
   });
 });
 
+// ===== SOURCE DU VISITEUR (pub Google Ads ou référencement naturel) =====
+// Repère d'où vient le visiteur à son arrivée sur le site et l'ajoute
+// au formulaire (champ caché « Source »), pour le voir dans l'email Formspree.
+// Une visite venue de la pub reste attribuée à la pub pendant 30 jours,
+// même si la personne revient ensuite directement ou par le naturel.
+(function trackVisitSource() {
+  var KEY = 'pvc_source_visite';
+  var ADS_DAYS = 30;
+  var now = Date.now();
+
+  function readStored() {
+    try { return JSON.parse(window.localStorage.getItem(KEY)); } catch (e) { return null; }
+  }
+  function store(value) {
+    try { window.localStorage.setItem(KEY, JSON.stringify(value)); } catch (e) {}
+  }
+
+  var params;
+  try { params = new URLSearchParams(window.location.search); } catch (e) { params = null; }
+  function param(name) { return params ? params.get(name) : null; }
+
+  var refHost = '';
+  try { refHost = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) {}
+  var isInternal = refHost && refHost.replace(/^www\./, '') === window.location.hostname.replace(/^www\./, '');
+
+  var detected = null;
+  var isAds = false;
+  if (param('gclid') || param('gbraid') || param('wbraid') || param('utm_medium') === 'cpc') {
+    detected = 'Google Ads (pub)';
+    isAds = true;
+  } else if (param('utm_source')) {
+    detected = 'Lien suivi : ' + param('utm_source') + (param('utm_medium') ? ' / ' + param('utm_medium') : '');
+  } else if (refHost && !isInternal) {
+    if (/(^|\.)google\./.test(refHost)) detected = 'Google naturel (SEO ou fiche Google)';
+    else if (/(bing|duckduckgo|qwant|yahoo|ecosia)\./.test(refHost)) detected = 'Autre moteur (naturel) : ' + refHost;
+    else if (/(facebook|instagram|messenger|fb)\./.test(refHost)) detected = 'Réseaux sociaux : ' + refHost;
+    else detected = 'Autre site : ' + refHost;
+  }
+
+  var stored = readStored();
+  var adsStillValid = stored && stored.ads && (now - stored.time) < ADS_DAYS * 86400000;
+
+  if (detected && (isAds || !adsStillValid)) {
+    stored = { label: detected, ads: isAds, time: now, page: window.location.pathname };
+    store(stored);
+  } else if (!stored && !isInternal) {
+    stored = { label: 'Direct (adresse tapée, favori, QR code ou bouche-à-oreille)', ads: false, time: now, page: window.location.pathname };
+    store(stored);
+  }
+
+  var field = document.getElementById('source-visite');
+  if (field) {
+    field.value = stored
+      ? stored.label + ' — arrivé sur ' + (stored.page || '/') + ' le ' + new Date(stored.time).toLocaleDateString('fr-FR')
+      : 'Inconnue';
+  }
+})();
+
 // ===== FORM - FORMSPREE INTEGRATION =====
 // Envoi en AJAX puis redirection vers merci.html, qui déclenche la
 // conversion Google Ads « Contact » (la redirection _next de Formspree
